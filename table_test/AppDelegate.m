@@ -1,12 +1,5 @@
-//
-//  AppDelegate.m
-//  table_test
-//
-//  Created by ND-00316 on 2015/12/16.
-//  Copyright © 2015年 nd-sys. All rights reserved.
-//
-
 #import "AppDelegate.h"
+#import "MainViewController.h"
 
 @interface AppDelegate ()
 
@@ -15,8 +8,15 @@
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
     // Override point for customization after application launch.
+    self.window                      = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    MainViewController* mVIew        = [[MainViewController alloc] init];
+    mVIew.view.backgroundColor       = [UIColor whiteColor];
+    self.window.rootViewController   = mVIew;
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
