@@ -21,3 +21,7 @@ Xcodeで新規プロジェクトを選択した際の「Master」を模した基
   ・１画面１ビューコントローラ  
   ・addChildViewControllerを使うと複数可能  
   ・デリゲート  
+
+
+【キーワード】  
+UITableViewController, UITableViewCell, UIToolbar, ViewController, editButtonItem, 画面遷移, テーブルビューセルの追加・削除, デリゲート  
