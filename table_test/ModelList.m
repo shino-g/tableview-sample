@@ -6,7 +6,7 @@
     NSDictionary *sampleList;
 }
 
--( instancetype )init
+-(instancetype)init
 {
     if ( self )
     {
@@ -25,7 +25,7 @@
             modelDetail.detailTtitle         = sampleList.allKeys[ i ];
             modelDetail.detailDescription    = sampleList[ item ][ @"description" ];
             modelDetail.detailCreateDatetime = [NSDate date];
-            modelDetail.detailImage          = sampleList[ item ][ @"img" ];
+            modelDetail.detailImage          = [UIImage imageNamed:sampleList[ item ][ @"img" ] ];
             i++;
             [itemList addObject:modelDetail];
         }
@@ -40,7 +40,7 @@
     modelDetail.detailTtitle         = sampleList.allKeys[ i ];
     modelDetail.detailDescription    = sampleList[ sampleList.allKeys[ i ] ][ @"description" ];
     modelDetail.detailCreateDatetime = [NSDate date];
-    modelDetail.detailImage          = sampleList[ sampleList.allKeys[ i ] ][ @"img" ];
+    modelDetail.detailImage          = [UIImage imageNamed:sampleList[ sampleList.allKeys[ i ] ][ @"img" ]];
     
     [itemList addObject:modelDetail];
     

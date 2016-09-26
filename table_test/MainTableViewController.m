@@ -10,16 +10,15 @@ static NSString* cellName = @"cell";
 @synthesize cellList;
 
 
+-(instancetype)init
+{
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.navigationItem.rightBarButtonItem = [self editButtonItem];
-    
-    // 普通のテーブルビューセルならこちらを使う
-    //[self.tableView registerClass:[TableViewCell class] forCellReuseIdentifier:cellName];
-    //詳細付きのテーブルスタイルを使う場合はこちらを使う。
-    [self.tableView registerClass:[MainTableViewCell class] forCellReuseIdentifier:cellName];
+    [self.tableView registerClass:[MainTableViewCell class]  forCellReuseIdentifier:cellName];
 }
 
 #pragma mark - Table view data source
@@ -37,18 +36,16 @@ static NSString* cellName = @"cell";
 //table cell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell      = [tableView dequeueReusableCellWithIdentifier:cellName forIndexPath:indexPath];
-
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellName forIndexPath:indexPath];
     
-    ModelDetail *model_detail   = cellList[ indexPath.row ];
+    ModelDetail *model_detail  = cellList[ indexPath.row ];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy/MM/dd HH:mm:ss"];
     NSString *dateText = [formatter stringFromDate:model_detail.detailCreateDatetime];
     
     cell.textLabel.text        = model_detail.detailTtitle;
     cell.detailTextLabel.text  = dateText;
-    cell.imageView.image       = [UIImage imageNamed:model_detail.detailImage];
-//    cell.imageView.image       =
+    cell.imageView.image       = model_detail.detailImage;
     return cell;
 }
 
